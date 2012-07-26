@@ -1,0 +1,26 @@
+set smooth
+set tabsize 2
+
+## Nanorc files
+include "/usr/local/share/nano/nanorc.nanorc"
+
+## Cascading Style Sheets
+include "/usr/local/share/nano/css.nanorc"
+
+## HTML
+include "/usr/local/share/nano/html.nanorc"
+
+## PHP
+include "/usr/local/share/nano/php.nanorc"
+
+## Manpages
+include "/usr/local/share/nano/man.nanorc"
+
+## Ruby
+include "/usr/local/share/nano/ruby.nanorc"
+
+## Bourne shell scripts
+include "/usr/local/share/nano/sh.nanorc"
+
+## Git
+include "~/.nano/git.nanorc"
