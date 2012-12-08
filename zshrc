@@ -48,3 +48,6 @@ eval "$(hub alias -s)"
 
 # RVM
 [[ -s '/Users/nic/.rvm/scripts/rvm' ]] && source '/Users/nic/.rvm/scripts/rvm'
+
+# NVM
+. ~/nvm/nvm.sh

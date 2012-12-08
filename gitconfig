@@ -48,3 +48,5 @@
   insteadOf = "gist:"
 [url "git@heroku.com:"]
   insteadOf = "heroku:"
+[branch]
+	autosetuprebase = always

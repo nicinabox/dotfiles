@@ -5,3 +5,4 @@ source "`brew --prefix grc`/etc/grc.bashrc"
 
 bindkey "[D" backward-word
 bindkey "[C" forward-word
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
