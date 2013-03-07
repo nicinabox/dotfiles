@@ -1,52 +1,70 @@
 [user]
 	name = Nic Haynes
 	email = nic@nicinabox.com
+
 [core]
 	editor = nano
 	excludesfile = /Users/nic/.global_ignore
-[alias]
-    st = status
-    ci = commit
-    br = branch
-    co = checkout
-    df = diff
-    dc = diff --cached
-	  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-    ls = ls-files
 
-    # Show files ignored by git:
-    ign = ls-files -o -i --exclude-standard
+[alias]
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  dc = diff --cached
+  lg = log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr %an)%Creset' --abbrev-commit --date=relative
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  ls = ls-files
+
+  # Show files ignored by git:
+  ign = ls-files -o -i --exclude-standard
 	timeline = log --oneline --graph --decorate
+
 [color]
-    ui = auto
+  ui = auto
+
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
+
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
   old = red bold
   new = green bold
+
 [color "status"]
   added = yellow
   changed = green
   untracked = cyan
+
 [url "git@github.com:"]
   insteadOf = "gh:"
   pushInsteadOf = "github:"
   pushInsteadOf = "git://github.com/"
+
 [url "git://github.com/"]
   insteadOf = "github:"
+
 [url "git@gist.github.com:"]
   insteadOf = "gst:"
   pushInsteadOf = "gist:"
   pushInsteadOf = "git://gist.github.com/"
+
 [url "git://gist.github.com/"]
   insteadOf = "gist:"
+
 [url "git@heroku.com:"]
   insteadOf = "heroku:"
+
+[url "git@code.neotericdesign.com:"]
+  insteadOf = "nd:"
+
 [branch]
 	autosetuprebase = always
+
+[push]
+	default = simple

@@ -24,30 +24,22 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rails3 textmate ruby brew github git-flow heroku pow osx rvm ssh-agent bundler cake cloudapp)
+plugins=(git rails3)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-# recommended by brew doctor
-export PATH='/usr/local/bin:/Users/nic/.rvm/gems/ruby-1.9.3-p0/bin:/Users/nic/.rvm/gems/ruby-1.9.3-p0@global/bin:/Users/nic/.rvm/rubies/ruby-1.9.3-p0/bin:/Users/nic/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin'
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
 fi
 
- . `brew --prefix`/etc/profile.d/z.sh
- function precmd () {
-   z --add "$(pwd -P)"
- }
-
-eval "$(hub alias -s)"
-
-# RVM
-[[ -s '/Users/nic/.rvm/scripts/rvm' ]] && source '/Users/nic/.rvm/scripts/rvm'
-
-# NVM
-. ~/nvm/nvm.sh
+# Z
+. `brew --prefix`/etc/profile.d/z.sh
