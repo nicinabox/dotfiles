@@ -31,15 +31,23 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# Add RVM to PATH for scripting
+export PATH=$PATH:$HOME/.rvm/bin
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export NODE_PATH="/usr/local/lib/node"
+export PATH="/usr/local/share/npm/bin:$PATH"
+
+# Z
+. `brew --prefix`/etc/profile.d/z.sh
+
+
+/usr/local/share/npm/bin/
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then
   source "$HOME/.aliases"
 fi
 
-# Z
-. `brew --prefix`/etc/profile.d/z.sh
