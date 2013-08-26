@@ -1,10 +1,10 @@
 [user]
-	name = Nic Haynes
-	email = nic@nicinabox.com
+  name = Nic Haynes
+  email = nic@nicinabox.com
 
 [core]
-	editor = nano
-	excludesfile = /Users/nic/.global_ignore
+  editor = nano
+  excludesfile = /Users/nic/.global_ignore
 
 [alias]
   st = status
@@ -59,9 +59,6 @@
 
 [url "git@heroku.com:"]
   insteadOf = "heroku:"
-
-[url "git@code.neotericdesign.com:"]
-  insteadOf = "nd:"
 
 [branch]
 	autosetuprebase = always
