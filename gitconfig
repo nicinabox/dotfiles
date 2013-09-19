@@ -1,5 +1,5 @@
 [user]
-  name = Nic Haynes
+  name = Nic Aitch
   email = nic@nicinabox.com
 
 [core]
@@ -61,7 +61,7 @@
   insteadOf = "heroku:"
 
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 
 [push]
-	default = simple
+  default = simple
