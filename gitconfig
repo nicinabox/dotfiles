@@ -20,7 +20,7 @@
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
-	timeline = log --oneline --graph --decorate
+  timeline = log --oneline --graph --decorate
 
 [color]
   ui = auto
@@ -65,3 +65,12 @@
 
 [push]
   default = simple
+
+[credential]
+  helper = osxkeychain
+
+[help]
+  autocorrect = 1
+
+[github]
+  user = nicinabox

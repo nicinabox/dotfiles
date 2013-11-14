@@ -27,7 +27,7 @@ alias s="bundle exec rspec"
 alias cuc="bundle exec cucumber"
 
 # Rubygems
-alias gi="gem install"
+alias gi="git"
 alias giv="gem install -v"
 
 # Rails
@@ -54,10 +54,4 @@ alias db-copy-production-to-staging='heroku pgbackups:restore DATABASE `heroku p
 alias db-backup-production='heroku pgbackups:capture --remote production'
 
 # SSH
-alias kaluza="ssh nic@kaluza.neotericdesign.com"
-alias darwin="ssh nic@darwin.neotericdesign.com"
-alias groucho="ssh nic@groucho.neotericdesign.com"
 alias spinoza="ssh nic@nicinabox.com"
-
-alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=nic@nicinabox.com 0/0'
-alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "Disconnected."'
