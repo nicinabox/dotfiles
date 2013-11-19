@@ -61,7 +61,7 @@
   insteadOf = "heroku:"
 
 [branch]
-  autosetuprebase = always
+	autosetuprebase = always
 
 [push]
   default = simple
