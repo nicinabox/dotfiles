@@ -1,5 +1,5 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+# Path to your oh-my-zsh installation.
+export ZSH=/Users/haynesn/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -7,60 +7,26 @@ ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-alias zshrc="sub ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
+
+# Exports
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export ANDROID_HOME=/usr/local/opt/android-sdk
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export EDITOR="sub"
 
 # Sources
 source $ZSH/oh-my-zsh.sh
 source `brew --prefix`/etc/profile.d/z.sh
-source $HOME/.config/s3/nicinabox
 
-# Customize to your needs...
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/haynesn/google-cloud-sdk/path.zsh.inc'
 
-# Android
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/build-tools
+# The next line enables shell command completion for gcloud.
+source '/Users/haynesn/google-cloud-sdk/completion.zsh.inc'
 
-# Aliases
-if [ -e "$HOME/.aliases" ]; then
-  source "$HOME/.aliases"
-fi
-
-# RVM for projects
-__rvm_project_rvmrc
+source $HOME/.aliases

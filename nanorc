@@ -2,13 +2,4 @@ set autoindent
 set tabsize 2
 set tabstospaces
 
-include "~/.nano/css.nanorc"
-include "~/.nano/html.nanorc"
-include "~/.nano/js.nanorc"
-include "~/.nano/man.nanorc"
-include "~/.nano/ruby.nanorc"
-include "~/.nano/sh.nanorc"
-include "~/.nano/systemd.nanorc"
 include "~/.nano/git.nanorc"
-include "~/.nano/vi.nanorc"
-include "~/.nano/zshrc.nanorc"

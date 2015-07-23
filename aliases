@@ -1,3 +1,6 @@
+# dotfiles
+alias dotfiles="$EDITOR ~/code/dotfiles"
+
 # Unix
 alias tlf="tail -f"
 alias ln='ln -v'
@@ -20,11 +23,9 @@ alias lgit="git $1 && clear"
 alias rake="noglob rake"
 
 # SSH
-alias spinoza="ssh nic@nicinabox.com"
 alias europa="ssh root@gitlab.nicinabox.com"
 
 # misc
-alias c="pbcopy"
 alias fhere="find . -name "
 alias wget="wget -c"
 alias iftoggle="sudo ifconfig en0 down && sudo ifconfig en0 up && date >> ~/.restart-en0"

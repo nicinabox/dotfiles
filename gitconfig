@@ -4,7 +4,7 @@
 
 [core]
   editor = nano
-  excludesfile = /Users/nic/.global_ignore
+  excludesfile = /Users/nic/.gitignore
 
 [alias]
   st = status

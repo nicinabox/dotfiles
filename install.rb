@@ -1,15 +1,17 @@
 #!/usr/bin/env ruby
-
 # from http://errtheblog.com/posts/89-huba-huba
 
+require 'fileutils'
+
 home = File.expand_path('~')
+ignores = ['install', 'bootstrap']
 
 Dir['*'].each do |file|
-  next if file =~ /install/
+  next if ignores.include?(file)
   target = File.join(home, ".#{file}")
-  `ln -s #{File.expand_path file} #{target}`
-end
 
-# git push on commit
-`echo 'git push' > .git/hooks/post-commit`
-`chmod 755 .git/hooks/post-commit`
+  unless File.exists? target
+    puts "linking #{file}"
+    FileUtils.ln_s File.expand_path(file), target
+  end
+end
