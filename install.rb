@@ -4,10 +4,10 @@
 require 'fileutils'
 
 home = File.expand_path('~')
-ignores = ['install', 'bootstrap']
+ignores = ['install.rb', 'bootstrap.sh']
 
 Dir['*'].each do |file|
-  next if ignores.include?(file)
+  next if ignores.include? file
   target = File.join(home, ".#{file}")
 
   unless File.exists? target
