@@ -4,14 +4,14 @@
 require 'fileutils'
 
 home = File.expand_path('~')
-ignores = ['install.rb', 'bootstrap.sh']
 
-Dir['*'].each do |file|
-  next if ignores.include? file
-  target = File.join(home, ".#{file}")
+Dir['src/*'].each do |file|
+  name = file.split('/').last
+  target = File.join(home, ".#{name}")
 
   unless File.exists? target
-    puts "linking #{file}"
-    FileUtils.ln_s File.expand_path(file), target
+    path = File.expand_path(file)
+    puts "#{name} -> #{path}"
+    FileUtils.ln_s path, target
   end
 end
