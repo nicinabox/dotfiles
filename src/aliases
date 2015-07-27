@@ -1,5 +1,5 @@
 # dotfiles
-alias dotfiles="$EDITOR ~/code/dotfiles"
+alias dotfiles="~/code/dotfiles"
 
 # Unix
 alias tlf="tail -f"
