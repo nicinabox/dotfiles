@@ -14,8 +14,11 @@ brew install gpg2
 brew install graphicsmagick
 brew install imagemagick
 brew install nano
+brew install git
 brew install tmux
 brew install tree
+brew install htop
+brew install gifify
 brew install z
 brew install zsh-syntax-highlighting
 brew install heroku-toolbelt
