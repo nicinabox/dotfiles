@@ -40,3 +40,5 @@ brew cask spotify
 brew cask slack
 brew cask alfred
 brew cask the-unarchiver
+
+npm install -g pure-prompt
