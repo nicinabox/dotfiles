@@ -19,6 +19,7 @@ brew install tmux
 brew install tree
 brew install htop
 brew install gifify
+brew install ssh-copy-id
 brew install z
 brew install zsh-syntax-highlighting
 brew install heroku-toolbelt
