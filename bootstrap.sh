@@ -45,3 +45,13 @@ brew cask alfred
 brew cask the-unarchiver
 
 npm install -g pure-prompt
+
+# Install dotfiles
+ruby ./install.rb
+
+# oh my zsh
+sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Symlinks
+ln -s /usr/local/lib/node_modules/pure-prompt/pure.zsh ~/.oh-my-zsh/custom/pure.zsh-theme
+ln -s /usr/local/lib/node_modules/pure-prompt/async.zsh ~/.oh-my-zsh/custom/async.zsh
