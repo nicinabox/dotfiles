@@ -1,4 +1,14 @@
 ME=`whoami`
+BREW=`brew --prefix`
+
+autoload -U compinit compdef
+compinit
+
+# The next line updates PATH for the Google Cloud SDK.
+source /Users/$ME/google-cloud-sdk/path.zsh.inc
+
+# The next line enables shell command completion for gcloud.
+source /Users/$ME/google-cloud-sdk/completion.zsh.inc
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/$ME/.oh-my-zsh
@@ -23,15 +33,8 @@ export EDITOR="sub"
 
 # Sources
 source $ZSH/oh-my-zsh.sh
-source `brew --prefix`/etc/profile.d/z.sh
-
-# The next line updates PATH for the Google Cloud SDK.
-source "/Users/$ME/google-cloud-sdk/path.zsh.inc"
-
-# The next line enables shell command completion for gcloud.
-source "/Users/$ME/google-cloud-sdk/completion.zsh.inc"
-
+source $BREW/etc/profile.d/z.sh
 source $HOME/.aliases
 
 # zsh syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
