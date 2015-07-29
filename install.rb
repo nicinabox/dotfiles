@@ -1,17 +1,26 @@
 #!/usr/bin/env ruby
-# from http://errtheblog.com/posts/89-huba-huba
-
+#
 require 'fileutils'
 
-home = File.expand_path('~')
+$home = File.expand_path('~')
 
-Dir['src/*'].each do |file|
-  name = file.split('/').last
-  target = File.join(home, ".#{name}")
-
-  unless File.exists? target
-    path = File.expand_path(file)
-    puts "#{name} -> #{path}"
-    FileUtils.ln_s path, target
+def symlink file, dest
+  unless File.exists? dest
+    src = File.expand_path(file)
+    puts "#{file} -> #{dest}"
+    FileUtils.ln_s src, dest
   end
+end
+
+def target file
+  name = File.join(file.split('/').drop(1))
+  File.join($home, ".#{name}")
+end
+
+Dir['src/**'].each do |file|
+  symlink file, target(file)
+end
+
+Dir['extras/**/**'].select {|f| File.file? f }.each do |file|
+  symlink file, target(file)
 end

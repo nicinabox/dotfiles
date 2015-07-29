@@ -30,7 +30,7 @@ plugins=(git)
 # Exports
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export ANDROID_HOME=/usr/local/opt/android-sdk
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export EDITOR="sub"
 
 # Sources
