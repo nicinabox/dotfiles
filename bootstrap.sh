@@ -10,21 +10,24 @@ brew tap homebrew/services
 
 # Libs and dependencies
 brew install caskroom/cask/brew-cask
+brew install z
 brew install gpg2
 brew install graphicsmagick
 brew install imagemagick
 brew install nano
 brew install git
-brew install tmux
 brew install tree
 brew install htop
 brew install gifify
 brew install ssh-copy-id
-brew install z
+brew install mosh
+brew install colordiff
+brew install tmux
 brew install zsh-syntax-highlighting
-brew install heroku-toolbelt
 brew install reattach-to-user-namespace
+brew install heroku-toolbelt
 brew install watchman
+
 brew install postgresql
 brew install redis
 brew install node
