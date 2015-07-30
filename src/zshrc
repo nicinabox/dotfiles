@@ -2,7 +2,7 @@ ME=`whoami`
 BREW=`brew --prefix`
 
 autoload -U compinit compdef
-autoload -U promptinit && promptinit
+autoload -U promptinit 
 compinit
 promptinit
 
