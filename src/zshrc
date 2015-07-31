@@ -2,9 +2,11 @@ ME=`whoami`
 BREW=`brew --prefix`
 
 autoload -U compinit compdef
-autoload -U promptinit 
+autoload -U promptinit
+autoload colors
 compinit
 promptinit
+colors
 
 # The next line updates PATH for the Google Cloud SDK.
 source /Users/$ME/google-cloud-sdk/path.zsh.inc
