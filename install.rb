@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-#
+
 require 'fileutils'
 
 $home = File.expand_path('~')
@@ -17,10 +17,19 @@ def target file
   File.join($home, ".#{name}")
 end
 
+def mkdir file
+  parts = file.split('/')
+  parts.pop
+  path = File.join(parts)
+  FileUtils.mkdir_p path
+end
+
 Dir['src/**'].each do |file|
   symlink file, target(file)
 end
 
 Dir['extras/**/**'].select {|f| File.file? f }.each do |file|
-  symlink file, target(file)
+  t = target file
+  mkdir t
+  symlink file, t
 end
