@@ -5,7 +5,7 @@ require 'fileutils'
 $home = File.expand_path('~')
 
 def symlink file, dest
-  unless File.exists? dest
+  unless File.symlink? dest or File.exists? dest
     src = File.expand_path(file)
     puts "#{file} -> #{dest}"
     FileUtils.ln_s src, dest
