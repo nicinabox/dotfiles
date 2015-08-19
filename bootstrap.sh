@@ -9,29 +9,29 @@ brew tap homebrew/dupes
 brew tap homebrew/services
 
 # Libs and dependencies
-brew install caskroom/cask/brew-cask
-brew install z
-brew install gpg2
-brew install graphicsmagick
-brew install imagemagick
-brew install nano
-brew install git
-brew install tree
-brew install htop
-brew install gifify
-brew install ssh-copy-id
-brew install mosh
-brew install colordiff
-brew install tmux
-brew install httpie
-brew install zsh-syntax-highlighting
-brew install reattach-to-user-namespace
-brew install heroku-toolbelt
-brew install watchman
-
-brew install postgresql
-brew install redis
-brew install node
+brew install \
+  caskroom/cask/brew-cask \
+  z \
+  gpg2 \
+  graphicsmagick \
+  imagemagick \
+  nano \
+  git \
+  tree \
+  htop \
+  gifify \
+  ssh-copy-id \
+  mosh \
+  colordiff \
+  tmux \
+  httpie \
+  zsh-syntax-highlighting \
+  reattach-to-user-namespace \
+  heroku-toolbelt \
+  watchman \
+  postgresql \
+  redis \
+  node
 
 # Services
 brew services start postgresql
@@ -42,22 +42,22 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB8
 \\curl -sSL https://get.rvm.io | bash -s stable
 
 # Applications
-brew cask google-chrome
-brew cask jumpcut
-brew cask spotify
-brew cask slack
-brew cask alfred
-brew cask the-unarchiver
-
-brew cask install qlcolorcode
-brew cask install qlstephen
-brew cask install qlmarkdown
-brew cask install quicklook-json
-brew cask install qlprettypatch
-brew cask install quicklook-csv
-brew cask install betterzipql
-brew cask install qlimagesize
-brew cask install provisionql
+brew cask install \
+  google-chrome \
+  jumpcut \
+  spotify \
+  slack \
+  alfred \
+  the-unarchiver \
+  qlcolorcode \
+  qlstephen \
+  qlmarkdown \
+  quicklook-json \
+  qlprettypatch \
+  quicklook-csv \
+  betterzipql \
+  qlimagesize \
+  provisionql
 
 npm install -g pure-prompt
 
