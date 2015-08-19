@@ -23,6 +23,7 @@ brew install ssh-copy-id
 brew install mosh
 brew install colordiff
 brew install tmux
+brew install httpie
 brew install zsh-syntax-highlighting
 brew install reattach-to-user-namespace
 brew install heroku-toolbelt
