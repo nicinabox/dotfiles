@@ -13,6 +13,7 @@ color white "# (Change[ds]|Untracked) .*"
 color white "#.*\(use .*"
 
 color brightcyan  "^[^#].*$"
+color brightred   "^.{72,}.+$"
 color white       "#[[:space:]](deleted|modified|new file|renamed):[[:space:]].*"
 color red         "#[[:space:]]deleted:"
 color green       "#[[:space:]]modified:"
