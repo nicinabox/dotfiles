@@ -6,10 +6,8 @@
 ruby install.rb
 ```
 
-## Bootstrap
-
-Currently untested.
+## Setup a new machine
 
 ```
-sh bootstrap.sh
+sh setup.sh
 ```
