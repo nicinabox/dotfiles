@@ -11,6 +11,7 @@ brew tap homebrew/services
 # Libs and dependencies
 brew install \
   caskroom/cask/brew-cask \
+  zsh \
   z \
   gpg2 \
   graphicsmagick \
@@ -68,5 +69,6 @@ ruby ./install.rb
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Symlinks
+mv ~/.oh-my-zsh/themes/pure.zsh-theme ~/.oh-my-zsh/themes/pure.zsh-theme.bak
 ln -s /usr/local/lib/node_modules/pure-prompt/pure.zsh ~/.oh-my-zsh/custom/pure.zsh-theme
 ln -s /usr/local/lib/node_modules/pure-prompt/async.zsh ~/.oh-my-zsh/custom/async.zsh
