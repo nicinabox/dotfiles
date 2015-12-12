@@ -51,9 +51,10 @@ set shiftwidth=2                "4 spaces for autoindent
 set autoindent                  "Set new line to previous line indent
 set autoread                    "Update files on change
 set smartindent                 "Automatically indent
-set nobackup                    "No backups!
+" set nobackup                    "No backups!
 set visualbell                  "No sounds!
 set noswapfile                  "No swaps!
+set backupcopy=yes
 
 " Syntax
 syntax on
