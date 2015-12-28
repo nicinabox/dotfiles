@@ -32,3 +32,5 @@ alias europa="ssh root@gitlab.nicinabox.com"
 alias fhere="find . -name "
 alias wget="wget -c"
 alias iftoggle="sudo ifconfig en0 down && sudo ifconfig en0 up && date >> ~/.restart-en0"
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
