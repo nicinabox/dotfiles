@@ -49,6 +49,7 @@ brew cask install \
   spotify \
   slack \
   alfred \
+  atom \
   the-unarchiver \
   qlcolorcode \
   qlstephen \
