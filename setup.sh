@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Fix /usr/local permissions
 sudo chown `whoami` /usr/local
 
