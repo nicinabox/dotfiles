@@ -35,6 +35,7 @@ export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:/usr/local/CrossPack-AVR-20131216/bin"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export EDITOR="sub"
+export HOMEBREW_GITHUB_API_TOKEN=385b1ec331093a0aaf0bd93ac4ad885c9b53aa50
 
 # Sources
 source $ZSH/oh-my-zsh.sh
