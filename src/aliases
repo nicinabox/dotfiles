@@ -20,7 +20,6 @@ alias rm='rm -i'
 
 # git
 alias g="git"
-alias lgit="git $1 && clear"
 
 # Ruby
 alias rake="noglob rake"
