@@ -5,3 +5,4 @@ config
 cloudapp
 scrobbler-helper.conf
 tunnel
+secret/

@@ -1,18 +1,21 @@
 export WHOAMI=`whoami`
 export BREW=`brew --prefix`
 
+function source_env() {
+  if [[ -f .env ]]; then
+    source .env
+  fi
+}
+
 autoload -U compinit compdef
 autoload -U promptinit
+autoload -U add-zsh-hook
 autoload colors
 compinit
 promptinit
 colors
 
-# The next line updates PATH for the Google Cloud SDK.
-source /Users/$WHOAMI/google-cloud-sdk/path.zsh.inc
-
-# The next line enables shell command completion for gcloud.
-source /Users/$WHOAMI/google-cloud-sdk/completion.zsh.inc
+add-zsh-hook chpwd source_env
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/$WHOAMI/.oh-my-zsh
@@ -36,12 +39,22 @@ export PATH="$PATH:/usr/local/CrossPack-AVR-20131216/bin"
 export PATH="$PATH:/usr/local/bin/elixir"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export EDITOR="atom"
-export HOMEBREW_GITHUB_API_TOKEN=385b1ec331093a0aaf0bd93ac4ad885c9b53aa50
 
 # Sources
+source $HOME/code/dotfiles/secret/zeumo
 source $ZSH/oh-my-zsh.sh
 source $BREW/etc/profile.d/z.sh
 source $HOME/.aliases
 
 # zsh syntax highlighting
 source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/$HOME/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/$HOME/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/$HOME/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/$HOME/google-cloud-sdk/completion.zsh.inc'
+fi
