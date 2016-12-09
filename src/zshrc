@@ -16,6 +16,7 @@ promptinit
 colors
 
 add-zsh-hook chpwd source_env
+source_env
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/$WHOAMI/.oh-my-zsh
