@@ -42,8 +42,16 @@ export PATH="$PATH:/usr/local/bin/elixir"
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export EDITOR="atom"
 
+# Secrets
+if (setopt nullglob dotglob; f=($HOME/code/dotfiles/secret/*); ((${#f[@]})))
+then
+  for f in $HOME/code/dotfiles/secret/*; do
+    source $f;
+    echo $f;
+  done
+fi
+
 # Sources
-source $HOME/code/dotfiles/secret/zeumo
 source $ZSH/oh-my-zsh.sh
 source $BREW/etc/profile.d/z.sh
 source $HOME/.aliases
