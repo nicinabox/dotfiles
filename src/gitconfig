@@ -18,6 +18,14 @@
   lol = log --graph --decorate --pretty=oneline --abbrev-commit
   lola = log --graph --decorate --abbrev-commit --date=relative --format=format:'%C(red)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
   ls = ls-files
+  latest-tag = describe --tags --abbrev=0
+  lg-latest = "!f() { \
+    git log `git latest-tag`..HEAD --format='%C(yellow)%h %Cblue%>(12)%ad %Cgreen%<(7)%aN%Cred%d %Creset%s' --date=relative; \
+  }; f"
+
+  br-clean = "!f() { \
+    git branch --merged ${1-master} | grep -v " ${1-master}$" | xargs git branch -d; \
+  }; f"
 
   # Show files ignored by git:
   ign = ls-files -o -i --exclude-standard
