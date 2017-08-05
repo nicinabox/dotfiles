@@ -34,7 +34,8 @@ ZSH_THEME="pure"
 plugins=(git)
 
 # Exports
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="~/.local/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:/usr/local/CrossPack-AVR-20131216/bin"
@@ -47,7 +48,6 @@ if (setopt nullglob dotglob; f=($HOME/code/dotfiles/secret/*); ((${#f[@]})))
 then
   for f in $HOME/code/dotfiles/secret/*; do
     source $f;
-    echo $f;
   done
 fi
 

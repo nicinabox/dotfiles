@@ -2,7 +2,7 @@
 alias tmux="TERM=screen-256color-bce tmux"
 
 # dotfiles
-alias dotfiles="~/code/dotfiles"
+alias dotfiles="$EDITOR ~/code/dotfiles"
 
 # Unix
 alias tlf="tail -f"
