@@ -1,8 +1,5 @@
 *.DS_Store
 ssh
 heroku
-config
-cloudapp
-scrobbler-helper.conf
 tunnel
 secret/
