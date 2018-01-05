@@ -19,11 +19,11 @@ end.parse!
 HOME_DIR = File.expand_path('~')
 
 def exists? dest
-  !(File.symlink? dest or File.exists? dest)
+  (File.symlink? dest or File.exists? dest)
 end
 
 def symlink file, dest
-  if exists? dest
+  if !exists? dest
     src = File.expand_path(file)
     puts "#{file} -> #{dest}"
     FileUtils.ln_s src, dest
