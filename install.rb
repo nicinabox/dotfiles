@@ -26,6 +26,7 @@ def symlink file, dest
   if !exists? dest
     src = File.expand_path(file)
     puts "#{file} -> #{dest}"
+    mkdir dest
     FileUtils.ln_s src, dest
   else
     puts "Skipping #{file}"
@@ -41,6 +42,7 @@ def mkdir file
   parts = file.split('/')
   parts.pop
   path = File.join(parts)
+  puts "Making #{path}"
   FileUtils.mkdir_p path
 end
 
@@ -50,7 +52,9 @@ def rm file
 end
 
 def install_dotfiles
-  Dir['src/**'].each do |file|
+  files = Dir['src/**/**'].reject{|p| File.directory? p }
+
+  files.each do |file|
     symlink file, target(file)
   end
 
