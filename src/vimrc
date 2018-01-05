@@ -1,69 +1,72 @@
-"dein Scripts-----------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
+" Plugins
+call plug#begin('~/.local/share/nvim/plugged')
 
-" Required:
-set runtimepath+=/Users/haynesn/code/dotfiles/src/vim/repos/github.com/Shougo/dein.vim
+Plug 'mhartington/oceanic-next'
+Plug 'rking/ag.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'scrooloose/nerdtree'
 
-" Required:
-call dein#begin('/Users/haynesn/code/dotfiles/src/vim')
+call plug#end()
 
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
+" Settings 
+syntax enable           " enable syntax processing
+colorscheme OceanicNext " theme
 
-" Add or remove your plugins here:
-call dein#add('Shougo/neosnippet.vim')
-call dein#add('Shougo/neosnippet-snippets')
+set tabstop=2           " number of visual spaces per TAB
+set softtabstop=2       " number of spaces in tab when editing
+set expandtab           " tabs are spaces
+set number              " show line numbers
+set showcmd             " show command in bottom bar
+set cursorline          " highlight current line
+filetype indent on      " load filetype-specific indent files
 
-" You can specify revision/branch/tag.
-call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to.
+set showmatch           " highlight matching [{()}]
 
-" Required:
-call dein#end()
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
 
-" Required:
-filetype plugin indent on
-syntax enable
+" Set split direction
+set splitbelow
+set splitright
 
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
-"endif
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
 
-"End dein Scripts-------------------------
+set foldenable          " enable folding
+set foldmethod=indent   " fold based on indent level
 
-" General
-set number
-set showcmd
-set encoding=utf-8              "UTF8
-set ls=2                        "Show status line
-set expandtab                   "Spaces, no tabs
-set backspace=2                 "Make backspacing work in insert
-set tabstop=2                   "4 spaces per tab
-set shiftwidth=2                "4 spaces for autoindent
-set autoindent                  "Set new line to previous line indent
-set autoread                    "Update files on change
-set smartindent                 "Automatically indent
-" set nobackup                    "No backups!
-set visualbell                  "No sounds!
-set noswapfile                  "No swaps!
-set backupcopy=yes
+" space open/closes folds
+nnoremap <space> za
 
-" Syntax
-syntax on
-" colorscheme dracula
-
-" Mappings
-let mapleader = ","
-inoremap jk <esc>
-
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
+" move to beginning/end of line
 nnoremap B ^
 nnoremap E $
 
-map <Leader> <Plug>(easymotion-prefix)
+" highlight last inserted text
+nnoremap gV `[v`]
+
+let mapleader=","       " leader is comma
+
+" edit vimrc/zshrc and load vimrc bindings
+nnoremap <leader>ev :vsp ~/.vimrc<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>et :vsp ~/.tmux.conf<CR>
+nnoremap <leader>sv :source ~/.vimrc<CR>
+
+" silver searcher
+let g:ackprg = 'ag --nogroup --nocolor --column'
+
+" open ag.vim
+nnoremap <leader>a :Ag
+
+" CtlP
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
+
+" NERDtree
+map <C-n> :NERDTreeToggle<CR>
