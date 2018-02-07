@@ -3,7 +3,7 @@
   email = nic@nicinabox.com
 
 [core]
-  editor = nano
+  editor = nvim
   excludesfile = ~/.gitignore
 
 [alias]
@@ -11,6 +11,7 @@
   ci = commit
   br = branch
   co = checkout
+  cp = cherry-pick
   df = diff
   dc = diff --cached
   wdiff = diff -w --word-diff-regex=. --color-words -U0

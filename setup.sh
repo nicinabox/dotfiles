@@ -24,7 +24,6 @@ brew install \
   htop \
   gifify \
   ssh-copy-id \
-  mosh \
   colordiff \
   tmux \
   httpie \
@@ -47,7 +46,6 @@ gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB
 # Applications
 brew cask install \
   google-chrome \
-  jumpcut \
   spotify \
   slack \
   alfred \
