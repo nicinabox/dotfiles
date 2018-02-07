@@ -7,6 +7,32 @@ function source_env() {
   fi
 }
 
+function auto_workon() {
+  CURPWD=`pwd`
+
+  if [[ $CURPWD = "$ACTIVE_CURPWD"* ]] && [ -n "${ACTIVE_ENV+1}" ]; then
+    return
+  fi
+
+  if [[ -f .venv ]]; then
+    NEXT_ACTIVE_ENV=`cat .venv`
+
+    if [[ $ACTIVE_ENV != $NEXT_ACTIVE_ENV ]]; then
+      ACTIVE_ENV=$NEXT_ACTIVE_ENV
+      ACTIVE_CURPWD=$CURPWD
+      unset NEXT_ACTIVE_ENV
+
+      workon $ACTIVE_ENV
+    fi
+  else
+    if [ -n "${ACTIVE_ENV+1}" ]; then
+      unset ACTIVE_ENV
+      unset ACTIVE_CURPWD
+      deactivate
+    fi
+  fi
+}
+
 autoload -U compinit compdef
 autoload -U promptinit
 autoload -U add-zsh-hook
@@ -14,9 +40,6 @@ autoload colors
 compinit
 promptinit
 colors
-
-add-zsh-hook chpwd source_env
-source_env
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/$WHOAMI/.oh-my-zsh
@@ -57,9 +80,14 @@ fi
 source $ZSH/oh-my-zsh.sh
 source $BREW/etc/profile.d/z.sh
 source $HOME/.aliases
-# source /usr/local/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 # zsh syntax highlighting
 source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ $TERM = "screen" ] && rvm use default
+
+add-zsh-hook chpwd source_env
+add-zsh-hook chpwd auto_workon
+source_env
+auto_workon
