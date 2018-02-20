@@ -1,6 +1,11 @@
 export WHOAMI=`whoami`
 export BREW=`brew --prefix`
 
+function safe_source() {
+  [[ -f "$1" ]] && source "$1"
+}
+
+
 function source_env() {
   if [[ -f .env ]]; then
     source .env
@@ -80,7 +85,7 @@ fi
 source $ZSH/oh-my-zsh.sh
 source $BREW/etc/profile.d/z.sh
 source $HOME/.aliases
-source /usr/local/bin/virtualenvwrapper.sh
+safe_source /usr/local/bin/virtualenvwrapper.sh
 
 # zsh syntax highlighting
 source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
