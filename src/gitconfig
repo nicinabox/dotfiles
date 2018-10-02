@@ -32,6 +32,9 @@
   ign = ls-files -o -i --exclude-standard
   timeline = log --oneline --graph --decorate
 
+  wip = "!f() { git add . && git ci -m 'WIP'; }; f"
+  unwip = reset HEAD~1
+
 [color]
   ui = auto
 
