@@ -2,6 +2,7 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'mhartington/oceanic-next'
+Plug 'dracula/vim',{'as':'dracula'}
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -12,7 +13,8 @@ call plug#end()
 
 " Settings
 syntax enable           " enable syntax processing
-colorscheme OceanicNext " theme
+" colorscheme OceanicNext " theme
+color dracula
 
 set tabstop=2           " number of visual spaces per TAB
 set softtabstop=2       " number of spaces in tab when editing
@@ -56,6 +58,7 @@ nnoremap <leader>ev :vsp ~/.vimrc<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>et :vsp ~/.tmux.conf<CR>
 nnoremap <leader>sv :source ~/.vimrc<CR>
+nnoremap <leader>sz :source ~/.zshrc<CR>
 
 " silver searcher
 let g:ackprg = 'ag --nogroup --nocolor --column'

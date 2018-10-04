@@ -1,14 +1,12 @@
 # tmux
 alias tmux="TERM=screen-256color-bce tmux"
 
-# dotfiles
-alias dotfiles="$EDITOR ~/code/dotfiles"
-
 # Unix
 alias tlf="tail -f"
 alias ln='ln -v'
 alias mkdir='mkdir -p'
-alias ...='../..'
+alias ..='cd ..'
+alias ...='cd ../..'
 alias l='ls'
 alias ll='ls -al'
 alias lh='ls -Alh'
