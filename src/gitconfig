@@ -1,5 +1,5 @@
 [user]
-  name = Nic Aitch
+  name = Nic Haynes
   email = nic@nicinabox.com
 
 [core]
@@ -32,8 +32,15 @@
   ign = ls-files -o -i --exclude-standard
   timeline = log --oneline --graph --decorate
 
+  wip = "!f() { git add . && git ci -m 'WIP'; }; f"
+  unwip = reset HEAD~1
+
 [color]
   ui = auto
+
+[pager]
+        diff = diff-so-fancy | less --tabs=1,5 -RFX
+        show = diff-so-fancy | less --tabs=1,5 -RFX
 
 [color "branch"]
   current = yellow reverse
@@ -88,3 +95,5 @@
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
+[diff-so-fancy]
+	markEmptyLines = false
