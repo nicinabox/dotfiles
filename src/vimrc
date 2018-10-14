@@ -2,7 +2,8 @@
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'mhartington/oceanic-next'
-Plug 'dracula/vim',{'as':'dracula'}
+Plug 'neovim/node-host', { 'do': 'npm install' }
+Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }
 Plug 'rking/ag.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'christoomey/vim-tmux-navigator'
@@ -11,11 +12,13 @@ Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
-" Settings
-syntax enable           " enable syntax processing
-" colorscheme OceanicNext " theme
-color dracula
+" Theme
+syntax enable
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+colorscheme OceanicNext
 
+" Settings
 set tabstop=2           " number of visual spaces per TAB
 set softtabstop=2       " number of spaces in tab when editing
 set expandtab           " tabs are spaces
@@ -77,3 +80,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Remove trailing whitespace
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Parse JS syntax
+let g:tigris#enabled = 1
