@@ -36,11 +36,11 @@
   unwip = reset HEAD~1
 
 [color]
-  ui = auto
+  ui = true
 
 [pager]
-        diff = diff-so-fancy | less --tabs=1,5 -RFX
-        show = diff-so-fancy | less --tabs=1,5 -RFX
+  diff = diff-so-fancy | less --tabs=1,5 -RFX
+  show = diff-so-fancy | less --tabs=1,5 -RFX
 
 [color "branch"]
   current = yellow reverse
@@ -48,10 +48,12 @@
   remote = green
 
 [color "diff"]
-  meta = yellow bold
+  meta = yellow
   frag = magenta bold
   old = red bold
   new = green bold
+  commit = yellow bold
+  whitespace = red reverse
 
 [color "status"]
   added = yellow
@@ -95,5 +97,13 @@
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
+[merge "npm-merge-driver"]
+  name = automatically merge npm lockfiles
+  driver = npx npm-merge-driver merge %A %O %B %P
 [diff-so-fancy]
-	markEmptyLines = false
+  markEmptyLines = false
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
