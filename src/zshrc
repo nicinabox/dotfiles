@@ -51,7 +51,7 @@ prompt pure
 # Exports
 export EDITOR="nvim"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-export PATH="~/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:/usr/local/CrossPack-AVR-20131216/bin"
@@ -70,13 +70,7 @@ then
   done
 fi
 
-# Sources
-<<<<<<< Updated upstream
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-source $HOME/code/z-zsh/z.sh
-=======
 source $BREW/etc/profile.d/z.sh
->>>>>>> Stashed changes
 source $HOME/.aliases
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 safe_source /usr/local/bin/virtualenvwrapper.sh
@@ -89,5 +83,4 @@ add-zsh-hook chpwd auto_workon
 source_env
 auto_workon
 
-bindkey -v
 bindkey "^R" history-incremental-search-backward
