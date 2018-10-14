@@ -71,15 +71,18 @@ then
 fi
 
 # Sources
+<<<<<<< Updated upstream
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 source $HOME/code/z-zsh/z.sh
+=======
+source $BREW/etc/profile.d/z.sh
+>>>>>>> Stashed changes
 source $HOME/.aliases
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 safe_source /usr/local/bin/virtualenvwrapper.sh
 
 # zsh syntax highlighting
 source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-[ $TERM = "screen" ] && rvm use default
 
 add-zsh-hook chpwd source_env
 add-zsh-hook chpwd auto_workon
