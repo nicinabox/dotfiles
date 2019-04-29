@@ -5,7 +5,6 @@ function safe_source() {
   [[ -f "$1" ]] && source "$1"
 }
 
-
 function source_env() {
   if [[ -f .env ]]; then
     source .env
@@ -45,8 +44,6 @@ autoload colors
 compinit
 promptinit
 colors
-
-prompt pure
 
 # Exports
 export EDITOR="nvim"
