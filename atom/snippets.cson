@@ -1,0 +1,208 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.text.plain':
+  'standup':
+    'prefix': 'standup'
+    'body': '''
+    *yesterday*
+    - $0
+
+    *today*
+    -
+    '''
+
+'.source.js':
+  'Meta Viewport':
+    'prefix': 'viewport'
+    'body': '''
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    '''
+
+  # CommonJS
+  'CommonJS require':
+    'prefix': 'req'
+    'body': "const $1 = require('$2')"
+
+  # ES6
+  'ES6 Import':
+    'prefix': 'import'
+    'body': "import $1 from '$2'"
+
+  # Testing
+  'describe':
+    'prefix': 'desc'
+    'body': "describe('$1', () => {\n\t$0\n})"
+
+  'it':
+    'prefix': 'it'
+    'body': "it('$1', ($2) => {\n\t$0\n})"
+
+  'expect':
+    'prefix': 'expect'
+    'body': "expect($1, '${2:to equal}', $3)"
+
+  # Redux
+  'export named function':
+    'prefix': 'efn'
+    'body': '''
+    export function $1($2) {
+      $3
+    }
+    '''
+
+  # React
+  'React constructor':
+    'prefix': 'con'
+    'body': '''
+    constructor(${1:props}) {
+      super(${1:props})
+      ${2:this.state = {\\}}
+    }
+    '''
+
+  'React Native Component Function':
+    'prefix': 'rnf'
+    'body': '''
+    import React from 'react'
+    import PropTypes from 'prop-types'
+    import { View } from 'react-native'
+
+    export default function $1(props) {
+      return (
+        ${3:<View></View>}
+      )
+    }
+
+    $1.propTypes = {}
+
+    $1.defaultProps = {}
+    '''
+
+  'Bind Function':
+    'prefix': 'bf'
+    'body': 'this.${1} = this.${1}.bind(this)'
+
+  'React Native Component Class':
+    'prefix': 'rnc'
+    'body': '''
+    import React, { Component } from 'react'
+    import { StyleSheet, View } from 'react-native'
+
+    export default class $1 extends Component {
+      render() {
+        return (
+          <View style={styles.container}>
+          </View>
+        )
+      }
+    }
+
+    const styles = StyleSheet.create({
+      container: {
+        flex: 1
+      }
+    })
+    '''
+
+  'React Function':
+    'prefix': 'rf'
+    'body': '''
+    import React from 'react'
+    import PropTypes from 'prop-types'
+
+    export default function $1(props) {
+      return ${2:null}
+    }
+
+    $1.propTypes = {}
+
+    $1.defaultProps = {}
+    '''
+
+  'React Class':
+    'prefix': 'rc'
+    'body': '''
+    import React, { Component } from 'react'
+    import PropTypes from 'prop-types'
+
+    export default class $1 extends Component {
+      render() {
+        return ${2:null}
+      }
+    }
+
+    $1.propTypes = {}
+
+    $1.defaultProps = {}
+    '''
+
+  'Connected React Class':
+    'prefix': 'crc'
+    'body': '''
+    import React, { Component } from 'react'
+    import { connect } from 'react-redux'
+
+    export class $1 extends Component {
+      render() {
+        return ${2:null}
+      }
+    }
+
+    export default connect((state) => ({state}))($1)
+    '''
+
+  'componentDidMount':
+    'prefix': 'cdm',
+    'body': """
+    componentDidMount() {
+      $1
+    }
+    """
+
+  'componentDidUpdate':
+    'prefix': 'cdu',
+    'body': """
+    componentDidUpdate(prevProps) {
+      $1
+    }
+    """
+
+  'shouldComponentUpdate':
+    'prefix': 'scu',
+    'body': """
+    shouldComponentUpdate(nextProps, nextState) {
+      $1
+    }
+    """
+
+  'componentWillUnmount':
+    'prefix': 'cwu',
+    'body': """
+    componentWillUnmount() {
+      $1
+    }
+    """
+
+  'ref':
+    'prefix': 'ref',
+    'body': "ref={r => this.$1 = r}"

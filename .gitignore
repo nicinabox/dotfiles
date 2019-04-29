@@ -3,3 +3,10 @@ ssh
 heroku
 tunnel
 secret/
+atom/.apm
+atom/blob-store
+atom/compile-cache
+atom/packages
+atom/storage
+atom/recovery
+atom/.atom-socket-secret*
