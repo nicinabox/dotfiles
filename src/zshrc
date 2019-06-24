@@ -49,7 +49,7 @@ colors
 export EDITOR="nvim"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:`yarn global bin`"
 export PATH="$PATH:/usr/local/CrossPack-AVR-20131216/bin"
 export PATH="$PATH:/usr/local/bin/elixir"
@@ -81,3 +81,6 @@ source_env
 auto_workon
 
 bindkey "^R" history-incremental-search-backward
+
+eval "$(rbenv init -)"
+
