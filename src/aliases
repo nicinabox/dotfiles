@@ -1,6 +1,3 @@
-# tmux
-alias tmux="TERM=screen-256color tmux"
-
 # Unix
 alias tlf="tail -f"
 alias ln='ln -v'
