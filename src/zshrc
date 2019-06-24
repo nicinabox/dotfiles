@@ -84,3 +84,4 @@ bindkey "^R" history-incremental-search-backward
 
 eval "$(rbenv init -)"
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
