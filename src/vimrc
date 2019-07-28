@@ -1,6 +1,7 @@
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
 
+" Run :PlugInstall in nvim
 Plug 'mhartington/oceanic-next'
 Plug 'neovim/node-host', { 'do': 'npm install' }
 Plug 'billyvg/tigris.nvim', { 'do': './install.sh' }

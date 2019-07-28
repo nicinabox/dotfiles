@@ -3,3 +3,4 @@ ssh
 heroku
 tunnel
 .env
+src/local/share/nvim
