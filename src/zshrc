@@ -20,6 +20,7 @@ export EDITOR="nvim"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:`yarn global bin`"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -47,3 +48,4 @@ bindkey '^[3;5~'  delete-char
 
 eval "$(rbenv init -)"
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
