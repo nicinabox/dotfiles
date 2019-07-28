@@ -2,12 +2,9 @@
 
 ## Install
 
-```
-ruby install.rb
-```
+    make install
 
-## Setup a new machine
+## Development
 
-```
-sh setup.sh
-```
+    make build
+    make run
