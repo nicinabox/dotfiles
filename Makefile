@@ -2,11 +2,9 @@ HOMEFILES := $(shell ls -A src)
 DOTFILES := $(addprefix $(HOME)/.,$(HOMEFILES))
 CONTAINER_NAME = dotfiles
 
-.PHONEY: preinstall install link unlink brew
+.PHONEY: install link unlink brew
 
-preinstall: prezto
-
-install: preinstall link
+install: link prezto
 
 link: | $(DOTFILES)
 
@@ -20,7 +18,7 @@ unlink:
 prezto:
 	rm -rf $$HOME/.zprezto
 	git clone --recursive https://github.com/sorin-ionescu/prezto.git "$(HOME)/.zprezto"
-	for rcfile in "$(HOME)"/.zprezto/runcoms/^README.md\(.N\); do; ln -s "$rcfile" "$(HOME)/.$(rcfile:t)"; done
+	for rcfile in "$(HOME)"/.zprezto/runcoms/^README.md\(.N\); do ln -s "$rcfile" "$(HOME)/.$(rcfile:t)"; done
 	chsh -s /bin/zsh
 	@echo "Open a new terminal window."
 
@@ -31,6 +29,7 @@ brew_libs:
 	brew install \
 		zsh \
 	 	z \
+		rbenv \
 		gpg2 \
 		graphicsmagick \
 		imagemagick \
@@ -42,7 +41,6 @@ brew_libs:
 		colordiff \
 		tmux \
 		httpie \
-		zsh-syntax-highlighting \
 		reattach-to-user-namespace
 
 brew_cask:
@@ -56,11 +54,14 @@ brew_cask:
 
 # development
 
-docker_build:
-	docker build --tag=$(CONTAINER_NAME) .
+build:
+	@docker build --tag=$(CONTAINER_NAME) .
 
-docker_restart:
-	docker container restart $(CONTAINER_NAME)
+restart:
+	@docker container restart $(CONTAINER_NAME)
 
-docker_run:
-	docker run --rm -it -v $(PWD):/home/tester/dotfiles $(CONTAINER_NAME)
+enter:
+	@docker exec -it $(CONTAINER_NAME) bash
+
+run:
+	@docker run --rm -d -it -v $(PWD):/home/tester/dotfiles --name $(CONTAINER_NAME) $(CONTAINER_NAME)
