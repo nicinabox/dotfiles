@@ -23,22 +23,18 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:`yarn global bin`"
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 
-# Secrets
-safe_source $PWD/.env
-
-source $BREW/etc/profile.d/z.sh
-source $HOME/.aliases
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+# Sources
+safe_source $$PWD/.env
 
 add-zsh-hook chpwd source_env
 source_env
+
+source $HOME/.aliases
+safe_source $BREW/etc/profile.d/z.sh
+safe_source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+safe_source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+safe_source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 bindkey -e
 bindkey '^[[A'    history-substring-search-up
