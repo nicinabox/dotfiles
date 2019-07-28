@@ -2,4 +2,4 @@
 ssh
 heroku
 tunnel
-secret/
+.env

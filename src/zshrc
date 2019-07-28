@@ -5,57 +5,22 @@ function safe_source() {
   [[ -f "$1" ]] && source "$1"
 }
 
-
 function source_env() {
-  if [[ -f .env ]]; then
-    source .env
-  fi
-}
-
-function auto_workon() {
-  CURPWD=`pwd`
-
-  if [[ $CURPWD = "$ACTIVE_CURPWD"* ]] && [ -n "${ACTIVE_ENV+1}" ]; then
-    return
-  fi
-
-  if [[ -f .venv ]]; then
-    NEXT_ACTIVE_ENV=`cat .venv`
-
-    if [[ $ACTIVE_ENV != $NEXT_ACTIVE_ENV ]]; then
-      ACTIVE_ENV=$NEXT_ACTIVE_ENV
-      ACTIVE_CURPWD=$CURPWD
-      unset NEXT_ACTIVE_ENV
-
-      workon $ACTIVE_ENV
-    fi
-  else
-    if [ -n "${ACTIVE_ENV+1}" ]; then
-      unset ACTIVE_ENV
-      unset ACTIVE_CURPWD
-      deactivate
-    fi
-  fi
+  safe_source .env
 }
 
 autoload -U compinit compdef
-autoload -U promptinit
 autoload -U add-zsh-hook
 autoload colors
 compinit
-promptinit
 colors
-
-prompt pure
 
 # Exports
 export EDITOR="nvim"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
+export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$PATH:`yarn global bin`"
-export PATH="$PATH:/usr/local/CrossPack-AVR-20131216/bin"
-export PATH="$PATH:/usr/local/bin/elixir"
 
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -63,24 +28,15 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
 
 # Secrets
-if (setopt nullglob dotglob; f=($HOME/code/dotfiles/secret/*); ((${#f[@]})))
-then
-  for f in $HOME/code/dotfiles/secret/*; do
-    source $f;
-  done
-fi
+safe_source $PWD/.env
 
 source $BREW/etc/profile.d/z.sh
 source $HOME/.aliases
 source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-safe_source /usr/local/bin/virtualenvwrapper.sh
-
-# zsh syntax highlighting
 source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 add-zsh-hook chpwd source_env
-add-zsh-hook chpwd auto_workon
 source_env
-auto_workon
 
 bindkey "^R" history-incremental-search-backward
