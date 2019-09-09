@@ -13,16 +13,11 @@
       "circle-ci"
       "github"
       "merge-conflicts"
+      "git-plus"
       "react-es6-snippets"
       "react"
       "vim-mode"
-      "linter-coffeelint"
-      "regex-railroad-diagram"
-      "docblockr"
-      "background-tips"
-      "language-gradle"
-      "git-plus"
-      "emmet"
+      "arduino-upload"
     ]
     ignoredNames: [
       ".git"
@@ -47,16 +42,13 @@
       "oceanic-next"
     ]
     titleBar: "custom-inset"
-    useTreeSitterParsers: false
   editor:
-    fontFamily: "Fira Code"
-    fontSize: 18
+    fontFamily: "Fira Code "
+    fontSize: 19
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
-    softWrap: true
     softWrapAtPreferredLineLength: true
-    softWrapHangingIndent: 2
   "exception-reporting":
     userId: "c17350f3-e8cb-2e43-d2e2-b460fc54dc04"
   "file-icons": {}
@@ -64,6 +56,8 @@
     general:
       _analyticsUserId: "ed178489-d1ba-4896-bf4c-8c58ba6d5d26"
       splitPane: "Right"
+  hidpi:
+    scaleFactor: 1.1
   "language-babel":
     taggedTemplateGrammar: [
       "\"(?<=<style jsx>{)|(?<=<style jsx global>{)\":source.css.styled"
@@ -71,6 +65,7 @@
   linter:
     disabledProviders: [
       "CoffeeLint"
+      "ESLint"
     ]
     lintOnChange: false
   "linter-eslint":
@@ -81,7 +76,8 @@
     global:
       eslintrcPath: "~"
   "linter-ui-default":
-    panelHeight: 300
+    panelHeight: 69
+    showPanel: true
   "one-dark-ui":
     hideDockButtons: true
   tabs:
@@ -89,7 +85,6 @@
   "tree-view":
     focusOnReveal: false
     hideIgnoredNames: true
-    hideVcsIgnoredFiles: true
   "vim-mode":
     startInInsertMode: true
   wakatime:

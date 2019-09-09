@@ -31,7 +31,7 @@
     -
     '''
 
-'.source.js':
+'.source.js, .source.ts, .source.tsx':
   'Meta Viewport':
     'prefix': 'viewport'
     'body': '''
@@ -60,6 +60,10 @@
   'expect':
     'prefix': 'expect'
     'body': "expect($1, '${2:to equal}', $3)"
+
+  'arrow function':
+    'prefix': 'af'
+    'body': '($1) => {$2}'
 
   # Redux
   'export named function':
@@ -206,3 +210,11 @@
   'ref':
     'prefix': 'ref',
     'body': "ref={r => this.$1 = r}"
+
+  'styled component':
+    'prefix': 'styled'
+    'body': """
+    const $1 = $.div`
+      $2
+    `
+    """

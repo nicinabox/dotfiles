@@ -4,10 +4,10 @@ heroku
 tunnel
 .env
 src/local/share/nvim
-atom/.apm
-atom/blob-store
-atom/compile-cache
-atom/packages
-atom/storage
-atom/recovery
-atom/.atom-socket-secret*
+src/atom/.apm
+src/atom/blob-store
+src/atom/compile-cache
+src/atom/packages
+src/atom/storage
+src/atom/recovery
+src/atom/.atom-socket-secret*
