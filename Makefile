@@ -15,14 +15,14 @@ unlink:
 	@echo "Unlinking dotfiles"
 	@for f in $(DOTFILES); do if [ -h $$f ]; then rm -i $$f; fi ; done
 
-prezto:
+install_prezto:
 	rm -rf $$HOME/.zprezto
 	git clone --recursive https://github.com/sorin-ionescu/prezto.git "$(HOME)/.zprezto"
 	for rcfile in "$(HOME)"/.zprezto/runcoms/^README.md\(.N\); do ln -s "$rcfile" "$(HOME)/.$(rcfile:t)"; done
 	chsh -s /bin/zsh
 	@echo "Open a new terminal window."
 
-brew:
+install_brew:
 	ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew_libs:
@@ -50,7 +50,13 @@ brew_cask:
 		the-unarchiver \
 		spotify \
 		google-chrome \
+		firefox \
 		slack \
+		1password \
+		caffeine \
+		insomnia \
+		vlc \
+		flux \
 
 # development
 
