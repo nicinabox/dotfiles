@@ -28,7 +28,7 @@ install_brew:
 brew_libs:
 	brew install \
 		zsh \
-	 	z \
+		z \
 		rbenv \
 		gpg2 \
 		graphicsmagick \
