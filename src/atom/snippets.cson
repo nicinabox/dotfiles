@@ -21,200 +21,135 @@
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
 
 '.text.plain':
-  'standup':
-    'prefix': 'standup'
-    'body': '''
-    *yesterday*
-    - $0
+    'standup':
+        'prefix': 'standup'
+        'body': '''
+                *yesterday*
+                - $0
 
-    *today*
-    -
-    '''
+                *today*
+                -
+                '''
 
-'.source.js, .source.ts, .source.tsx':
-  'Meta Viewport':
-    'prefix': 'viewport'
-    'body': '''
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    '''
+'.source.js':
+    'Meta Viewport':
+        'prefix': 'metaviewport'
+        'body': '''
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                '''
 
-  # CommonJS
-  'CommonJS require':
-    'prefix': 'req'
-    'body': "const $1 = require('$2')"
+    'commonJS require':
+        'prefix': 'req'
+        'body': "const $1 = require('$2')"
 
-  # ES6
-  'ES6 Import':
-    'prefix': 'import'
-    'body': "import $1 from '$2'"
+    'export named function':
+        'prefix': 'efn'
+        'body': '''
+                export function $1($2) {
+                  $3
+                }
+                '''
 
-  # Testing
-  'describe':
-    'prefix': 'desc'
-    'body': "describe('$1', () => {\n\t$0\n})"
+    # React
+    'React Native Component Function':
+        'prefix': 'rnf'
+        'body': '''
+                import React from 'react'
+                import { View } from 'react-native'
 
-  'it':
-    'prefix': 'it'
-    'body': "it('$1', ($2) => {\n\t$0\n})"
+                export default function $1(props) {
+                  return (
+                    ${3:<View></View>}
+                  )
+                }
+                '''
 
-  'expect':
-    'prefix': 'expect'
-    'body': "expect($1, '${2:to equal}', $3)"
+    'Bind Function':
+        'prefix': 'bf'
+        'body': 'this.${1} = this.${1}.bind(this)'
 
-  'arrow function':
-    'prefix': 'af'
-    'body': '($1) => {$2}'
+    'React Native Component Class':
+        'prefix': 'rnc'
+        'body': '''
+                import React, { Component } from 'react'
+                import { StyleSheet, View } from 'react-native'
 
-  # Redux
-  'export named function':
-    'prefix': 'efn'
-    'body': '''
-    export function $1($2) {
-      $3
-    }
-    '''
+                export default class $1 extends Component {
+                  render() {
+                    return (
+                      <View style={styles.container}>
+                      </View>
+                    )
+                  }
+                }
 
-  # React
-  'React constructor':
-    'prefix': 'con'
-    'body': '''
-    constructor(${1:props}) {
-      super(${1:props})
-      ${2:this.state = {\\}}
-    }
-    '''
+                const styles = StyleSheet.create({
+                  container: {
+                    flex: 1
+                  }
+                })
+                '''
 
-  'React Native Component Function':
-    'prefix': 'rnf'
-    'body': '''
-    import React from 'react'
-    import PropTypes from 'prop-types'
-    import { View } from 'react-native'
+    'React Function':
+        'prefix': 'rf'
+        'body': '''
+                import React from 'react'
 
-    export default function $1(props) {
-      return (
-        ${3:<View></View>}
-      )
-    }
+                export default function $1({  }) {
+                  return (
+                    <div></div>
+                  )
+                }
+                '''
 
-    $1.propTypes = {}
+    'React Class':
+        'prefix': 'rc'
+        'body': '''
+                import React, { Component } from 'react'
 
-    $1.defaultProps = {}
-    '''
+                export default class $1 extends Component {
+                  render() {
+                    return ${2:null}
+                  }
+                }
+                '''
 
-  'Bind Function':
-    'prefix': 'bf'
-    'body': 'this.${1} = this.${1}.bind(this)'
+        # Testing
+        'describe':
+            'prefix': 'desc'
+            'body': "describe('$1', () => {\n\t$0\n})"
 
-  'React Native Component Class':
-    'prefix': 'rnc'
-    'body': '''
-    import React, { Component } from 'react'
-    import { StyleSheet, View } from 'react-native'
+        'it':
+            'prefix': 'it'
+            'body': "it('$1', ($2) => {\n\t$0\n})"
 
-    export default class $1 extends Component {
-      render() {
-        return (
-          <View style={styles.container}>
-          </View>
-        )
-      }
-    }
+        'expect':
+            'prefix': 'expect'
+            'body': "expect($1, '${2:to equal}', $3)"
 
-    const styles = StyleSheet.create({
-      container: {
-        flex: 1
-      }
-    })
-    '''
 
-  'React Function':
-    'prefix': 'rf'
-    'body': '''
-    import React from 'react'
-    import PropTypes from 'prop-types'
+'.source.ts, .source.tsx':
+    'styled component':
+        'prefix': 'styled'
+        'body': '''
+                const $2 = styled.${1:div}`
+                  $3
+                `
+                '''
 
-    export default function $1(props) {
-      return ${2:null}
-    }
+    'React function':
+        'prefix': 'rf'
+        'body': '''
+                  import React from 'react'
 
-    $1.propTypes = {}
+                  interface $0Props {
+                  }
 
-    $1.defaultProps = {}
-    '''
+                  export const $0: React.FC<$0Props> = ({  }) => {
+                    return (
+                      <div></div>
+                    )
+                  }
 
-  'React Class':
-    'prefix': 'rc'
-    'body': '''
-    import React, { Component } from 'react'
-    import PropTypes from 'prop-types'
-
-    export default class $1 extends Component {
-      render() {
-        return ${2:null}
-      }
-    }
-
-    $1.propTypes = {}
-
-    $1.defaultProps = {}
-    '''
-
-  'Connected React Class':
-    'prefix': 'crc'
-    'body': '''
-    import React, { Component } from 'react'
-    import { connect } from 'react-redux'
-
-    export class $1 extends Component {
-      render() {
-        return ${2:null}
-      }
-    }
-
-    export default connect((state) => ({state}))($1)
-    '''
-
-  'componentDidMount':
-    'prefix': 'cdm',
-    'body': """
-    componentDidMount() {
-      $1
-    }
-    """
-
-  'componentDidUpdate':
-    'prefix': 'cdu',
-    'body': """
-    componentDidUpdate(prevProps) {
-      $1
-    }
-    """
-
-  'shouldComponentUpdate':
-    'prefix': 'scu',
-    'body': """
-    shouldComponentUpdate(nextProps, nextState) {
-      $1
-    }
-    """
-
-  'componentWillUnmount':
-    'prefix': 'cwu',
-    'body': """
-    componentWillUnmount() {
-      $1
-    }
-    """
-
-  'ref':
-    'prefix': 'ref',
-    'body': "ref={r => this.$1 = r}"
-
-  'styled component':
-    'prefix': 'styled'
-    'body': """
-    const $1 = $.div`
-      $2
-    `
-    """
+                  export default $0
+                '''

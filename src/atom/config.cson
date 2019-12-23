@@ -5,23 +5,20 @@
   "atom-beautify":
     general:
       _analyticsUserId: "b1f78f78-1b50-45cf-8acd-d5fc00267baf"
+  "atom-ide-ui":
+    use:
+      "atom-ide-console": "never"
+      "atom-ide-outline-view": "never"
+      "atom-ide-refactor": "never"
+      "atom-ide-terminal": "never"
   "circle-ci":
     apiToken: "aaeb24433649ae33eaddad16b2da35a553cf8874"
   core:
     destroyEmptyPanes: false
     disabledPackages: [
-      "circle-ci"
       "github"
-      "merge-conflicts"
-      "react-es6-snippets"
-      "vim-mode"
-      "regex-railroad-diagram"
-      "docblockr"
       "background-tips"
-      "language-gradle"
-      "react"
       "linter"
-      "rails-snippets"
     ]
     ignoredNames: [
       ".git"
@@ -50,12 +47,10 @@
     useTreeSitterParsers: false
   editor:
     fontFamily: "Fira Code"
-    fontSize: 18
+    fontSize: 19
     scrollPastEnd: true
     showIndentGuide: true
     showInvisibles: true
-    softWrap: true
-    softWrapAtPreferredLineLength: true
     softWrapHangingIndent: 2
   "exception-reporting":
     userId: "c17350f3-e8cb-2e43-d2e2-b460fc54dc04"
@@ -64,6 +59,8 @@
     general:
       _analyticsUserId: "ed178489-d1ba-4896-bf4c-8c58ba6d5d26"
       splitPane: "Right"
+  "goto-definition":
+    contextMenuDisplayAtFirst: false
   "language-babel":
     taggedTemplateGrammar: [
       "\"(?<=<style jsx>{)|(?<=<style jsx global>{)\":source.css.styled"
@@ -82,8 +79,12 @@
       eslintrcPath: "~"
   "linter-ui-default":
     panelHeight: 300
+    showPanel: true
   "one-dark-ui":
     hideDockButtons: true
+  "package-sync":
+    createOnChange: true
+    forceOverwrite: true
   tabs:
     enableVcsColoring: true
   "todo-show":
