@@ -1,0 +1,103 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+'.text.plain':
+    'standup':
+        'prefix': 'standup'
+        'body': '''
+                *yesterday*
+                - $0
+
+                *today*
+                -
+                '''
+
+'.source.js,.source.ts, .source.tsx':
+    'Meta Viewport':
+        'prefix': 'metaviewport'
+        'body': '''
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                '''
+
+    'commonJS require':
+        'prefix': 'req'
+        'body': "const $1 = require('$2')"
+
+    'export named function':
+        'prefix': 'efn'
+        'body': '''
+                export function $1($2) {
+                  $3
+                }
+                '''
+
+    'bind function':
+        'prefix': 'bf'
+        'body': 'this.${1} = this.${1}.bind(this)'
+
+    'react class':
+        'prefix': 'rc'
+        'body': '''
+                import React, { Component } from 'react'
+
+                export default class $1 extends Component {
+                  render() {
+                    return ${2:null}
+                  }
+                }
+                '''
+
+    'react function':
+        'prefix': 'rf'
+        'body': '''
+                  import React from 'react'
+
+                  interface $0Props {
+                  }
+
+                  export const $0: React.FC<$0Props> = ({  }) => {
+                    return (
+                      <div></div>
+                    )
+                  }
+
+                  export default $0
+                '''
+    'describe':
+        'prefix': 'desc'
+        'body': "describe('$1', () => {\n\t$0\n})"
+
+    'it':
+        'prefix': 'it'
+        'body': "it('$1', ($2) => {\n\t$0\n})"
+
+    'expect':
+        'prefix': 'expect'
+        'body': "expect($1, '${2:to equal}', $3)"
+
+    'styled component':
+        'prefix': 'styled'
+        'body': '''
+                const $2 = styled.${1:div}`
+                  $3
+                `
+                '''

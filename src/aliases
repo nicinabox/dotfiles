@@ -19,9 +19,6 @@ alias g="git"
 # Ruby
 alias rake="noglob rake"
 
-# SSH
-alias europa="ssh root@gitlab.nicinabox.com"
-
 # misc
 alias fhere="find . -name "
 alias wget="wget -c"

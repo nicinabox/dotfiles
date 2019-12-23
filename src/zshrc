@@ -6,81 +6,41 @@ function safe_source() {
 }
 
 function source_env() {
-  if [[ -f .env ]]; then
-    source .env
-  fi
-}
-
-function auto_workon() {
-  CURPWD=`pwd`
-
-  if [[ $CURPWD = "$ACTIVE_CURPWD"* ]] && [ -n "${ACTIVE_ENV+1}" ]; then
-    return
-  fi
-
-  if [[ -f .venv ]]; then
-    NEXT_ACTIVE_ENV=`cat .venv`
-
-    if [[ $ACTIVE_ENV != $NEXT_ACTIVE_ENV ]]; then
-      ACTIVE_ENV=$NEXT_ACTIVE_ENV
-      ACTIVE_CURPWD=$CURPWD
-      unset NEXT_ACTIVE_ENV
-
-      workon $ACTIVE_ENV
-    fi
-  else
-    if [ -n "${ACTIVE_ENV+1}" ]; then
-      unset ACTIVE_ENV
-      unset ACTIVE_CURPWD
-      deactivate
-    fi
-  fi
+  safe_source .env
 }
 
 autoload -U compinit compdef
-autoload -U promptinit
 autoload -U add-zsh-hook
 autoload colors
 compinit
-promptinit
 colors
 
 # Exports
 export EDITOR="nvim"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$PATH:`yarn global bin`"
-export PATH="$PATH:/usr/local/CrossPack-AVR-20131216/bin"
-export PATH="$PATH:/usr/local/bin/elixir"
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
-
-# Secrets
-if (setopt nullglob dotglob; f=($HOME/code/dotfiles/secret/*); ((${#f[@]})))
-then
-  for f in $HOME/code/dotfiles/secret/*; do
-    source $f;
-  done
-fi
-
-source $BREW/etc/profile.d/z.sh
-source $HOME/.aliases
-source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-safe_source /usr/local/bin/virtualenvwrapper.sh
-
-# zsh syntax highlighting
-source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Sources
+safe_source $$PWD/.env
 
 add-zsh-hook chpwd source_env
-add-zsh-hook chpwd auto_workon
 source_env
-auto_workon
 
-bindkey "^R" history-incremental-search-backward
+source $HOME/.aliases
+safe_source $BREW/etc/profile.d/z.sh
+safe_source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+safe_source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+safe_source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+bindkey -e
+bindkey '^[[A'    history-substring-search-up
+bindkey '^[[B'    history-substring-search-down
+bindkey '^[[3~'   delete-char
+bindkey '^[3;5~'  delete-char
 
 eval "$(rbenv init -)"
 
