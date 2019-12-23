@@ -31,7 +31,7 @@
                 -
                 '''
 
-'.source.js':
+'.source.js,.source.ts, .source.tsx':
     'Meta Viewport':
         'prefix': 'metaviewport'
         'body': '''
@@ -50,59 +50,11 @@
                 }
                 '''
 
-    # React
-    'React Native Component Function':
-        'prefix': 'rnf'
-        'body': '''
-                import React from 'react'
-                import { View } from 'react-native'
-
-                export default function $1(props) {
-                  return (
-                    ${3:<View></View>}
-                  )
-                }
-                '''
-
-    'Bind Function':
+    'bind function':
         'prefix': 'bf'
         'body': 'this.${1} = this.${1}.bind(this)'
 
-    'React Native Component Class':
-        'prefix': 'rnc'
-        'body': '''
-                import React, { Component } from 'react'
-                import { StyleSheet, View } from 'react-native'
-
-                export default class $1 extends Component {
-                  render() {
-                    return (
-                      <View style={styles.container}>
-                      </View>
-                    )
-                  }
-                }
-
-                const styles = StyleSheet.create({
-                  container: {
-                    flex: 1
-                  }
-                })
-                '''
-
-    'React Function':
-        'prefix': 'rf'
-        'body': '''
-                import React from 'react'
-
-                export default function $1({  }) {
-                  return (
-                    <div></div>
-                  )
-                }
-                '''
-
-    'React Class':
+    'react class':
         'prefix': 'rc'
         'body': '''
                 import React, { Component } from 'react'
@@ -114,30 +66,7 @@
                 }
                 '''
 
-        # Testing
-        'describe':
-            'prefix': 'desc'
-            'body': "describe('$1', () => {\n\t$0\n})"
-
-        'it':
-            'prefix': 'it'
-            'body': "it('$1', ($2) => {\n\t$0\n})"
-
-        'expect':
-            'prefix': 'expect'
-            'body': "expect($1, '${2:to equal}', $3)"
-
-
-'.source.ts, .source.tsx':
-    'styled component':
-        'prefix': 'styled'
-        'body': '''
-                const $2 = styled.${1:div}`
-                  $3
-                `
-                '''
-
-    'React function':
+    'react function':
         'prefix': 'rf'
         'body': '''
                   import React from 'react'
@@ -152,4 +81,23 @@
                   }
 
                   export default $0
+                '''
+    'describe':
+        'prefix': 'desc'
+        'body': "describe('$1', () => {\n\t$0\n})"
+
+    'it':
+        'prefix': 'it'
+        'body': "it('$1', ($2) => {\n\t$0\n})"
+
+    'expect':
+        'prefix': 'expect'
+        'body': "expect($1, '${2:to equal}', $3)"
+
+    'styled component':
+        'prefix': 'styled'
+        'body': '''
+                const $2 = styled.${1:div}`
+                  $3
+                `
                 '''
