@@ -15,9 +15,11 @@ alias rm='rm -i'
 
 # git
 alias g="git"
+alias lg=lazygit
 
 # Ruby
 alias rake="noglob rake"
+alias python=python3
 
 # misc
 alias fhere="find . -name "
