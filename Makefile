@@ -2,14 +2,18 @@ HOMEFILES := $(shell ls -A src)
 DOTFILES := $(addprefix $(HOME)/.,$(HOMEFILES))
 CONTAINER_NAME = dotfiles
 
-.PHONEY: install link unlink brew
-
-install: link prezto
+.PHONEY: install link unlink install_brew
 
 link: | $(DOTFILES)
 
+install: link install_prezto
+
 $(DOTFILES):
 	@ln -sv "$(PWD)/src/$(patsubst .%,%,$(notdir $@))" $@
+
+debug:
+	@echo "Source Files: $(DOTFILES)"
+	@echo "Home Files: $(HOMEFILES)"
 
 unlink:
 	@echo "Unlinking dotfiles"
@@ -27,9 +31,7 @@ install_brew:
 
 brew_libs:
 	brew install \
-		zsh \
 		z \
-		rbenv \
 		gpg2 \
 		graphicsmagick \
 		imagemagick \
@@ -41,12 +43,12 @@ brew_libs:
 		colordiff \
 		tmux \
 		httpie \
+		neovim \
 		reattach-to-user-namespace
 
 brew_cask:
 	brew cask install \
 		alfred \
-		atom \
 		the-unarchiver \
 		spotify \
 		google-chrome \
@@ -56,7 +58,7 @@ brew_cask:
 		caffeine \
 		insomnia \
 		vlc \
-		flux \
+		flux
 
 # development
 
