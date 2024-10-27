@@ -3,11 +3,5 @@ ssh
 heroku
 tunnel
 .env
+src/local/state/nvim
 src/local/share/nvim
-src/atom/.apm
-src/atom/blob-store
-src/atom/compile-cache
-src/atom/packages
-src/atom/storage
-src/atom/recovery
-src/atom/.atom-socket-secret*
