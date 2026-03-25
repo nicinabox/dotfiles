@@ -25,3 +25,7 @@ doc/
 # Env
 .env
 .venv
+
+# Secrets (local config, not version controlled)
+.secrets
+.zshrc.local

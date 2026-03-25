@@ -1,47 +1,15 @@
-export WHOAMI=`whoami`
-export BREW=`brew --prefix`
+# Modular zsh configuration
+# Files are loaded from ~/.zsh/
 
-function safe_source() {
-  [[ -f "$1" ]] && source "$1"
-}
-
-function source_env() {
-  safe_source .env
-}
-
+# Initialize autoloads first
 autoload -U compinit compdef
-autoload -U add-zsh-hook
 autoload colors
-compinit
 colors
 
-# Exports
-export EDITOR="nvim"
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-export PATH="/usr/local/opt/avr-gcc@8/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="$PATH:`yarn global bin`"
+# Load modules
+for module in ~/.zsh/*.zsh; do
+  source "$module"
+done
 
-# Sources
-safe_source $$PWD/.env
-
-add-zsh-hook chpwd source_env
-source_env
-
-source $HOME/.aliases
-safe_source $BREW/etc/profile.d/z.sh
-safe_source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-safe_source $BREW/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-safe_source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-
-bindkey -e
-bindkey '^[[A'    history-substring-search-up
-bindkey '^[[B'    history-substring-search-down
-bindkey '^[[3~'   delete-char
-bindkey '^[3;5~'  delete-char
-
-eval "$(rbenv init -)"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# Initialize completions last
+compinit
